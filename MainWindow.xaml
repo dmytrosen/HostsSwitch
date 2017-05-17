@@ -1,0 +1,96 @@
+﻿<Window x:Class="Bhhc.Com.Apps.Tools.HostSwitch.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ctrs="clr-namespace:Bhhc.Com.Apps.Tools.HostSwitch.Controls"
+        Title="Development Environment Host Switch" 
+        Height="350" Width="575"
+        MinHeight="525" MinWidth="525" Icon="app.ico">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*" />
+			<RowDefinition Height="65" />
+		</Grid.RowDefinitions>
+		<TabControl x:Name="EnvsTabControl" Grid.Row="0" SelectionChanged="OnEnvsTabControlSelectionChanged">
+			<TabItem Header="localhost">
+				<ctrs:HostsFileControl></ctrs:HostsFileControl>
+			</TabItem>
+		</TabControl>
+		<ctrs:SettingsControl x:Name="SettingControl" Grid.Row="0" Visibility="Collapsed"></ctrs:SettingsControl>
+		<ctrs:HelpControl x:Name="HelpControl" Grid.Row="0" Visibility="Collapsed"></ctrs:HelpControl>
+		<Border x:Name="MainButtonsPanel" Grid.Row="1" BorderBrush="Black" BorderThickness="0" Margin="5">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition x:Name="MainBtnsColumn1" Width="35"/>
+					<ColumnDefinition x:Name="MainBtnsColumn2" Width="75"/>
+					<ColumnDefinition Width="75"/>
+					<ColumnDefinition Width="5"/>
+				</Grid.ColumnDefinitions>
+				<ScrollViewer Grid.Column="0" Margin="0" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto">
+					<ListView x:Name="Result" Grid.Row="0" BorderThickness="0"></ListView>
+				</ScrollViewer>
+				<StackPanel Grid.Column="1" Margin="10,0,0,0" Orientation="Vertical">
+                    <Button x:Name="HelpBtn" Margin="0,0,0,5" Click="OnButtonHelpClick">
+                        <Image Source="Assets/Images/StatusHelp_gray_16x.png" />
+                    </Button>
+					<Button x:Name="SettingsBtn" Margin="0,0,0,0" Click="OnButtonSetupClick">
+                        <Image Source="Assets/Images/Settings_24x.png" />
+                    </Button>
+				</StackPanel>
+				<Button Grid.Column="2" x:Name="RefreshBtn" Margin="10,0,0,0" Click="OnBtnRefreshClick">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Margin="0,-1,0,0" Source="Assets/Images/Refresh_grey_16x.png" Stretch="None"  />
+                        <TextBlock Margin="2,-2,0,0">reload</TextBlock>
+                    </StackPanel>
+                </Button>
+				<Button Grid.Column="3" x:Name="CloseBtn" Margin="10,0,0,0" Click="OnBtnCloseClick">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="Assets/Images/Close_16x.png" Stretch="None"  />
+                        <TextBlock Margin="2,-1,0,0">close</TextBlock>
+                    </StackPanel>
+                </Button>
+				<Button Grid.Column="2" x:Name="SaveSettingsBtn" Margin="10,0,0,0" Visibility="Collapsed" IsEnabled="False" Click="OnSaveSettingsBtnClick">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Margin="0,-2,0,0" Source="Assets/Images/save_22x.png" Stretch="None"  />
+                        <TextBlock Margin="1,0,0,0">save</TextBlock>
+                    </StackPanel>
+                </Button>
+				<Button Grid.Column="3" x:Name="CancelSettingsBtn" Margin="10,0,0,0" Visibility="Collapsed" Click="OnCancelSettingsBtnClick">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="Assets/Images/Cancel_grey_16x.png" Stretch="None"  />
+                        <TextBlock Margin="3,-2,0,0">cancel</TextBlock>
+                    </StackPanel>
+                </Button>
+				<Button Grid.Column="3" x:Name="CancelHelpBtn" Margin="10,0,0,0" Visibility="Collapsed" Click="OnCancelHelpBtnClick">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="Assets/Images/Close_16x.png" Stretch="None"  />
+                        <TextBlock Margin="2,-1,0,0">close</TextBlock>
+                    </StackPanel>
+                </Button>
+			</Grid>
+		</Border>
+        <Border x:Name="MainLoadingPanel" Grid.Row="1" BorderBrush="Black" BorderThickness="0" Margin="5" Visibility="Collapsed">
+            <Grid x:Name="ButtonsGrid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="75"/>
+                    <ColumnDefinition Width="5"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="10" />
+                    </Grid.RowDefinitions>
+                    <TextBlock x:Name="LoadingText" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0">loaging configureation ...</TextBlock>
+                    <ProgressBar x:Name="LoadingProgressBar" IsIndeterminate="False" Orientation="Horizontal" Maximum="10" Minimum="0" Value="0" Grid.Row="1" Margin="5,0" />
+                </Grid>
+                <Button Grid.Column="1" x:Name="CloseLoadBtn" Margin="10,0,0,0" Click="OnBtnCloseClick">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="Assets/Images/Close_16x.png" Stretch="None"  />
+                        <TextBlock Margin="2,-1,0,0">close</TextBlock>
+                    </StackPanel>
+                </Button>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
