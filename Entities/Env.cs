@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace Bhhc.Com.Apps.Tools.HostSwitch.Entities
+namespace HostSwitch.Entities
 {
 	[Serializable]
 	public class Env

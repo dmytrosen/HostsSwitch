@@ -1,4 +1,4 @@
-﻿using Bhhc.Com.Apps.Tools.HostSwitch.Entities;
+﻿using HostSwitch.Entities;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,7 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml.Serialization;
 
-namespace Bhhc.Com.Apps.Tools.HostSwitch.Controls
+namespace HostSwitch.Controls
 {
 	/// <summary>
 	/// Interaction logic for SettingsControl.xaml

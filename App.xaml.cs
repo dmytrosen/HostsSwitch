@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Bhhc.Com.Apps.Tools.HostSwitch
+namespace HostSwitch
 {
 	/// <summary>
 	/// Interaction logic for App.xaml

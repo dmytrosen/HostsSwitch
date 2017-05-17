@@ -1,5 +1,5 @@
-﻿using Bhhc.Com.Apps.Tools.HostSwitch.Controls;
-using Bhhc.Com.Apps.Tools.HostSwitch.Entities;
+﻿using HostSwitch.Controls;
+using HostSwitch.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,7 +18,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml.Serialization;
 
-namespace Bhhc.Com.Apps.Tools.HostSwitch
+namespace HostSwitch
 {
 	/// <summary>
 	/// Interaction logic for MainWindow.xaml

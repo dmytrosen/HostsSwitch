@@ -1,7 +1,7 @@
-﻿<Window x:Class="Bhhc.Com.Apps.Tools.HostSwitch.MainWindow"
+﻿<Window x:Class="HostSwitch.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:ctrs="clr-namespace:Bhhc.Com.Apps.Tools.HostSwitch.Controls"
+        xmlns:ctrs="clr-namespace:HostSwitch.Controls"
         Title="Development Environment Host Switch" 
         Height="350" Width="575"
         MinHeight="525" MinWidth="525" Icon="app.ico">

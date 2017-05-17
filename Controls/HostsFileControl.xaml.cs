@@ -1,5 +1,5 @@
-﻿using Bhhc.Com.Apps.Tools.HostSwitch;
-using Bhhc.Com.Apps.Tools.HostSwitch.Entities;
+﻿using HostSwitch;
+using HostSwitch.Entities;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -18,7 +18,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Bhhc.Com.Apps.Tools.HostSwitch.Controls
+namespace HostSwitch.Controls
 {
 	/// <summary>
 	/// Interaction logic for HostsFileControl.xaml
