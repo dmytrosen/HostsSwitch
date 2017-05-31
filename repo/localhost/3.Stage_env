@@ -20,6 +20,6 @@
 #	127.0.0.1       localhost
 #	::1             localhost
 
-10.10.70.2 		SRV-IIS-APP
-10.10.70.3 		SRV-SQL-DB
-10.10.70.4		SRV-IIS-SVC
+192.168.70.2 		SRV-IIS-APP
+192.168.70.3 		SRV-SQL-DB
+192.168.70.4		SRV-IIS-SVC

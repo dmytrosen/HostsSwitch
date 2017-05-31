@@ -142,34 +142,19 @@
     <None Include="repo\localhost\env.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="repo\VM-SRV-IIS-APP\0.Local_only_no_mapping">
+    <None Include="repo\SRV-IIS-DEV\0.Local_only_no_mapping">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="repo\VM-SRV-IIS-APP\1.Dev_env">
+    <None Include="repo\SRV-IIS-DEV\1.Dev_env">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="repo\VM-SRV-IIS-APP\2.Test_env">
+    <None Include="repo\SRV-IIS-DEV\2.Test_env">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="repo\VM-SRV-IIS-APP\3.Stage_env">
+    <None Include="repo\SRV-IIS-DEV\3.Stage_env">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="repo\VM-SRV-IIS-APP\env.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="repo\VM-SRV-IIS-SVC\0.Local_only_no_mapping">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="repo\VM-SRV-IIS-SVC\1.Dev_env">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="repo\VM-SRV-IIS-SVC\2.Test_env">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="repo\VM-SRV-IIS-SVC\3.Stage_env">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="repo\VM-SRV-IIS-SVC\env.config">
+    <None Include="repo\SRV-IIS-DEV\env.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
