@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace HostSwitch.Entities
 {
+    /// <summary>
+    /// Application setting file, deserialized from AppSettings.config file; persistency
+    /// </summary>
 	public class AppSettings : ICloneable
 	{
 	    protected bool Equals(AppSettings other)
@@ -30,8 +33,14 @@ namespace HostSwitch.Entities
 	        }
 	    }
 
+        /// <summary>
+        /// Log messages at level EMessagingLevel
+        /// </summary>
 	    public EMessagingLevel MessagingLevel { get; set; }
 
+        /// <summary>
+        /// Indicator states whether logs should be cleared when all environments are refreshed
+        /// </summary>
         public bool ClearLogsOnRefresh { get; set; }
 
         public static bool operator ==(AppSettings set1, AppSettings set2)

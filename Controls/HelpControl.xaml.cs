@@ -16,7 +16,8 @@ using System.Windows.Shapes;
 namespace HostSwitch.Controls
 {
 	/// <summary>
-	/// Interaction logic for Help.xaml
+	/// Help screen. 
+    /// Interaction logic for Help.xaml
 	/// </summary>
 	public partial class HelpControl : UserControl
 	{

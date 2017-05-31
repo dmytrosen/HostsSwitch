@@ -145,7 +145,6 @@ namespace HostSwitch
                             Text = envSet.Title,
                             Foreground = new SolidColorBrush(envSet.IsValid ? Colors.Black : Colors.Red)
                         };
-                        //envTab.ToolTip = envSet.ConfigPath;
                         envTab.Content = hostsFileControl;
                         // add host files to DDL
                         hostsFileControl.CurrentEnvPath.Text = envSet.EnvHostPath;

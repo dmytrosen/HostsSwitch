@@ -21,7 +21,8 @@ using System.Windows.Shapes;
 namespace HostSwitch.Controls
 {
 	/// <summary>
-	/// Interaction logic for HostsFileControl.xaml
+	/// Host file control is Tab on main screen. 
+    /// Interaction logic for HostsFileControl.xaml
 	/// </summary>
 	public partial class HostsFileControl : UserControl
 	{

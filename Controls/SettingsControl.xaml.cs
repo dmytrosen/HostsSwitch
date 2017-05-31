@@ -19,6 +19,7 @@ using System.Xml.Serialization;
 namespace HostSwitch.Controls
 {
 	/// <summary>
+    /// Settings screen. 
 	/// Interaction logic for SettingsControl.xaml
 	/// </summary>
 	public partial class SettingsControl : UserControl
