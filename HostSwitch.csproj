@@ -16,7 +16,7 @@
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>x64</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -44,6 +44,9 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Management" />
+    <Reference Include="System.ValueTuple, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.ValueTuple.4.3.1\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -81,6 +84,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Controls\Common\BoolToErrorColor.cs" />
+    <Compile Include="Controls\Common\AppModeToVisible.cs" />
+    <Compile Include="Controls\Common\BoolToVisibleOrHiddenOrCollapsed.cs" />
     <Compile Include="Controls\HelpControl.xaml.cs">
       <DependentUpon>HelpControl.xaml</DependentUpon>
     </Compile>
@@ -96,10 +102,15 @@
     <Compile Include="Controls\HostsFileControl.xaml.cs">
       <DependentUpon>HostsFileControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Entities\EnvSets.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Resources\MainDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -119,6 +130,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -163,33 +175,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="app.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Assets\Images\app.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Assets\Images\Settings_24x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Assets\Images\StatusHelp_gray_16x.png" />
-    <Resource Include="Assets\Images\StatusHelp_grey_32xMD.png" />
-    <Resource Include="Assets\Images\VSO_StatusHelp_grey_16x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Assets\Images\CheckInShelveset_16x.png" />
-    <Resource Include="Assets\Images\Refresh_grey_16x.png" />
-    <Resource Include="Assets\Images\Undo_grey_16x.png" />
-    <Resource Include="Assets\Images\UnsyncedCommits_16x.png" />
-    <Resource Include="Assets\Images\UpdatedScript_16x.png" />
-    <Resource Include="Assets\Images\upload_22x.png" />
-    <Resource Include="Assets\Images\Upload_gray_16x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Assets\Images\Cancel_grey_16x.png" />
-    <Resource Include="Assets\Images\Close_16x.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Assets\Images\save_22x.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

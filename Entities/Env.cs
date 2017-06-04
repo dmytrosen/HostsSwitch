@@ -26,7 +26,6 @@ namespace HostSwitch.Entities
     /// </Env>
     /// </code>
     /// </summary>
-	[Serializable]
 	public class Env
 	{
         /// <summary>

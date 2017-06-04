@@ -9,7 +9,7 @@ namespace HostSwitch.Entities
     /// <summary>
     /// Application state; used for navigation and active form identification
     /// </summary>
-	internal enum EAppMode
+	public enum EAppMode
 	{
         /// <summary>
         /// App load

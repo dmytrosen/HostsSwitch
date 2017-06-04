@@ -1,0 +1,331 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:ctlscmn="clr-namespace:HostSwitch.Controls.Common"
+                    xmlns:local="clr-namespace:HostSwitch.Resources">
+
+    <ctlscmn:BoolToVisibleOrHiddenOrCollapsed x:Key="BoolToVisibleHiddeneConverter" Collapse="False" />
+    <ctlscmn:BoolToVisibleOrHiddenOrCollapsed x:Key="BoolToVisibleCollapseConverter" Collapse="True" />
+    <ctlscmn:BoolToErrorColor x:Key="BoolReverseBooleanNavyToErrorRedConverter" TrueColor="Navy" ErrorColor="Red" />
+    <ctlscmn:AppModeToVisible x:Key="ConfigAppModeToVisibleConverter" EnableAppMode="Config" />
+    <ctlscmn:AppModeToVisible x:Key="SettingsAppModeToVisibleConverter" EnableAppMode="Settings" />
+    <ctlscmn:AppModeToVisible x:Key="HelpAppModeToVisibleConverter" EnableAppMode="Help" />
+
+    <Style x:Key="sideBtn" TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Height" Value="40" />
+        <Setter Property="Width" Value="125" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="0" BorderThickness="0,0,0,1" BorderBrush="White" Background="Transparent">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="{TemplateBinding Tag}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0" FontSize="30" />
+                            <ContentPresenter Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0">
+                                <TextBlock.FontFamily>Times New Roman</TextBlock.FontFamily>
+                            </ContentPresenter>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="#FF0091FF" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border CornerRadius="0" BorderThickness="0" BorderBrush="#FF0091FF" Background="White">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="40" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="{TemplateBinding Tag}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0" FontSize="30" />
+                                    <ContentPresenter Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0">
+                                        <TextBlock.FontFamily>Times New Roman</TextBlock.FontFamily>
+                                    </ContentPresenter>
+                                </Grid>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="sideBottomBtn" TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Height" Value="40" />
+        <Setter Property="Width" Value="125" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="0" BorderThickness="0,1,0,0" BorderBrush="White" Background="Transparent">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="{TemplateBinding Tag}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5" FontSize="25" />
+                            <ContentPresenter Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0">
+                                <TextBlock.FontFamily>Times New Roman</TextBlock.FontFamily>
+                            </ContentPresenter>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="#FF0091FF" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border CornerRadius="0" BorderThickness="0" BorderBrush="#FF0091FF" Background="White">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="40" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="{TemplateBinding Tag}" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0" FontSize="25" />
+                                    <ContentPresenter Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0">
+                                        <TextBlock.FontFamily>Times New Roman</TextBlock.FontFamily>
+                                    </ContentPresenter>
+                                </Grid>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="mainBtn" TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Background" Value="#FF0091FF" />
+        <Setter Property="Margin" Value="5,0,0,0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="0" BorderThickness="1,1,1,1" BorderBrush="White" Background="#FF0091FF">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Row="0" Text="{TemplateBinding Tag}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,15,0,0" FontSize="15" />
+                            <ContentPresenter Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0">
+                                <TextBlock.FontFamily>Times New Roman</TextBlock.FontFamily>
+                                <TextBlock.FontSize>15</TextBlock.FontSize>
+                            </ContentPresenter>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="#FF0091FF" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border CornerRadius="0" BorderThickness="1,1,1,1" BorderBrush="#FF0091FF" Background="White">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Grid.Row="0" Text="{TemplateBinding Tag}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,15,0,0" FontSize="15" />
+                                    <ContentPresenter Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0">
+                                        <TextBlock.FontFamily>Times New Roman</TextBlock.FontFamily>
+                                        <TextBlock.FontSize>15</TextBlock.FontSize>
+                                    </ContentPresenter>
+                                </Grid>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Foreground" Value="#FF0091FF" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border CornerRadius="0" BorderThickness="1,1,1,1" BorderBrush="#FF0091FF" Background="Transparent">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Grid.Row="0" Text="{TemplateBinding Tag}" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,15,0,0" FontSize="15" />
+                                    <ContentPresenter Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0">
+                                        <TextBlock.FontFamily>Times New Roman</TextBlock.FontFamily>
+                                        <TextBlock.FontSize>15</TextBlock.FontSize>
+                                    </ContentPresenter>
+                                </Grid>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="midBtn" TargetType="{x:Type Button}">
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Background" Value="#FF0091FF" />
+        <Setter Property="Margin" Value="1,0" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="0" BorderThickness="1,1,1,1" BorderBrush="#FF0091FF" Background="#FF0091FF">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="25" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="{TemplateBinding Tag}" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5,0,0,0" FontSize="20" />
+                            <ContentPresenter Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="1,-2,0,0">
+                                <TextBlock.FontFamily>Times New Roman</TextBlock.FontFamily>
+                            </ContentPresenter>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Cursor" Value="Hand" />
+                <Setter Property="Foreground" Value="#FF0091FF" />
+                <Setter Property="Background" Value="White" />
+                <Setter Property="Margin" Value="1,0" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border CornerRadius="0" BorderThickness="1,1,1,1" BorderBrush="#FF0091FF" Background="White">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="25" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="{TemplateBinding Tag}" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5,0,0,0" FontSize="20" />
+                                    <ContentPresenter Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="1,-2,0,0">
+                                        <TextBlock.FontFamily>Times New Roman</TextBlock.FontFamily>
+                                    </ContentPresenter>
+                                </Grid>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Cursor" Value="No" />
+                <Setter Property="Foreground" Value="#550091FF" />
+                <Setter Property="Background" Value="White" />
+                <Setter Property="Margin" Value="1,0" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border CornerRadius="0" BorderThickness="1,1,1,1" BorderBrush="#550091FF" Background="White">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="25" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="{TemplateBinding Tag}" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5,0,0,0" FontSize="20" />
+                                    <ContentPresenter Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="1,-2,0,0">
+                                        <TextBlock.FontFamily>Times New Roman</TextBlock.FontFamily>
+                                    </ContentPresenter>
+                                </Grid>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
+    <Style x:Key="RegularAltText" TargetType="{x:Type TextBlock}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="White" />
+    </Style>
+    <Style x:Key="LabelAltText" TargetType="{x:Type TextBlock}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="Margin" Value="0,0,10,0" />
+        <Setter Property="TextAlignment" Value="Right" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+    <Style x:Key="RegularAltHyperLink" TargetType="{x:Type Hyperlink}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="White" />
+    </Style>
+
+    <Style x:Key="MidComboBox" TargetType="{x:Type ComboBox}">
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Foreground" Value="Navy" />
+        <Setter Property="Background" Value="White" />
+        <Setter Property="Margin" Value="1,0" />
+        <Setter Property="FontSize" Value="14" />
+    </Style>
+    <Style x:Key="ComboItemStyle" TargetType="{x:Type ComboBoxItem}">
+        <Setter Property="Foreground" Value="#FF0091FF" />
+        <Setter Property="Background" Value="White" />
+        <Setter Property="Margin" Value="1,0" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ComboBoxItem">
+                    <Border CornerRadius="0" BorderThickness="0,0,0,1" BorderBrush="Navy" Background="White">
+                        <TextBlock Padding="5,10" Foreground="Navy" Background="White">
+                            <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Center" />
+                        </TextBlock>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="ComboBoxItem">
+                            <Border CornerRadius="0" BorderThickness="0,0,0,1" BorderBrush="#FF0091FF" Background="White">
+                                <TextBlock Padding="5,10" Foreground="White" Background="#FF0091FF" Cursor="Hand">
+                            <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Center" />
+                                </TextBlock>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="MidTabControl" TargetType="{x:Type TabControl}">
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="Foreground" Value="Navy" />
+        <Setter Property="Background" Value="White" />
+    </Style>
+
+    <Style x:Key="NormalAltCheckBox" TargetType="{x:Type CheckBox}">
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Foreground" Value="Navy" />
+        <Setter Property="Background" Value="White" />
+    </Style>
+
+</ResourceDictionary>

@@ -26,7 +26,9 @@ namespace HostSwitch.Controls
 	{
 		private const string CONFIG_FILE_NAME = "AppSettings.config";
 
-		internal AppSettings ConfigAppSettings { get; private set; }
+        MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
+
+        internal AppSettings ConfigAppSettings { get; private set; }
 
 		private AppSettings currentAppSettings = null;
 
@@ -38,12 +40,11 @@ namespace HostSwitch.Controls
 
 		internal void LoadConfig()
 		{
-			string configName = ((MainWindow)App.Current.MainWindow).REPO_PATH + "\\" + CONFIG_FILE_NAME;
-			MainWindow mainWindow = (MainWindow)App.Current.MainWindow;
+			string configName = mainWindow.REPO_PATH + "\\" + CONFIG_FILE_NAME;
 
             if (currentAppSettings?.ClearLogsOnRefresh == true)
             {
-                mainWindow.Result.Items.Clear();
+                mainWindow?.Results.Clear();
             }
             try
 			{
@@ -52,7 +53,7 @@ namespace HostSwitch.Controls
 				{
 					currentAppSettings = (AppSettings)(new XmlSerializer(typeof(AppSettings))).Deserialize(fs);
 					ConfigAppSettings = (AppSettings)currentAppSettings.Clone();
-					mainWindow.AddFootNote("app config: " + configName + " has been loaded", EMessagingLevel.Verbose);
+					mainWindow?.AddFootNote("app config: " + configName + " has been loaded", EMessagingLevel.Verbose);
                     MessageSelector.SelectedIndex = (int)currentAppSettings.MessagingLevel;
                     ClearLogsCheckBox.IsChecked = currentAppSettings.ClearLogsOnRefresh;
                 }
@@ -61,7 +62,7 @@ namespace HostSwitch.Controls
 			{
 				currentAppSettings = new AppSettings { MessagingLevel = EMessagingLevel.Verbose };
 				ConfigAppSettings = (AppSettings)currentAppSettings.Clone();
-				mainWindow.AddFootNote("faild to load app config: " + configName, EMessagingLevel.Error);
+				mainWindow?.AddFootNote("faild to load app config: " + configName, EMessagingLevel.Error);
 				SaveConfig();
 			}
 			UpdateUi();
@@ -71,9 +72,7 @@ namespace HostSwitch.Controls
 
 	    private void UpdateUi()
 		{
-			MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
-
-			if (mainWindow.IsLoaded)
+			if (mainWindow?.IsLoaded ?? false)
 			{
 				mainWindow.SaveSettingsBtn.IsEnabled = HasChanges;
 			}
@@ -81,10 +80,8 @@ namespace HostSwitch.Controls
 
 		private void OnComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-			MainWindow mainWindow = (MainWindow)App.Current.MainWindow;
-
-			if (mainWindow.IsLoaded)
-			{
+            if (mainWindow?.IsLoaded ?? false)
+            {
                 currentAppSettings.MessagingLevel = (EMessagingLevel)((ComboBox)sender).SelectedIndex;
 				mainWindow.AddFootNote("new messaging Level has been selected: " + currentAppSettings.MessagingLevel.ToString(), EMessagingLevel.Result);
 				UpdateUi();
@@ -93,10 +90,9 @@ namespace HostSwitch.Controls
 
         private void OnClearLogsCheckBoxClick(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = (MainWindow)App.Current.MainWindow;
             CheckBox cleaLogsOnRefreshControl = (CheckBox)sender;
 
-            if (mainWindow.IsLoaded)
+            if (mainWindow?.IsLoaded ?? false)
             {
                 currentAppSettings.ClearLogsOnRefresh = cleaLogsOnRefreshControl.IsChecked ?? false;
                 mainWindow.AddFootNote("Clear Logs On Refresh is set to : " + currentAppSettings.ClearLogsOnRefresh.ToString(), EMessagingLevel.Result);
@@ -106,18 +102,15 @@ namespace HostSwitch.Controls
 
         private void OnClearLogsButtonClick(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = (MainWindow)App.Current.MainWindow;
-
-            if (mainWindow.IsLoaded)
+            if (mainWindow?.IsLoaded ?? false)
             {
-                mainWindow.Result.Items.Clear();
+                mainWindow.Results.Clear();
             }
         }
 
         internal bool SaveConfig()
 		{
 			string configName = ((MainWindow)App.Current.MainWindow).REPO_PATH + "\\" + CONFIG_FILE_NAME;
-			MainWindow mainWindow = (MainWindow)App.Current.MainWindow;
 			bool isSuccess = false;
 
 			try
@@ -136,7 +129,7 @@ namespace HostSwitch.Controls
 			}
 			catch 
 			{
-				mainWindow.AddFootNote("faild to save app config: " + configName, EMessagingLevel.Error);
+				mainWindow?.AddFootNote("faild to save app config: " + configName, EMessagingLevel.Error);
 				isSuccess = false;
 			}
 			UpdateUi();

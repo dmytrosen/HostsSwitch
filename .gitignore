@@ -6,4 +6,6 @@
 /obj/Debug
 /bin/Release
 /obj/Release
+/packages
 /.vs
+/*.csproj.user

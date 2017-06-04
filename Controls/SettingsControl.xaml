@@ -4,34 +4,41 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="500">
 	<Border BorderBrush="Black" BorderThickness="0,0,0,1">
-		<ScrollViewer Margin="5" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Auto">
-			<StackPanel Orientation="Vertical">
-				<Border BorderBrush="#ddd" BorderThickness="1" Margin="5,5,5,0" Padding="5">
-					<StackPanel Orientation="Horizontal">
-						<Canvas>
-							<TextBlock FontSize="10" Background="#ddd" Padding="2" Canvas.Top="-17" Canvas.Left="0">messaging</TextBlock>
-						</Canvas>
-						<TextBlock Margin="0,3,10,0">Select messaging level:</TextBlock>
-						<ComboBox x:Name="MessageSelector" SelectedIndex="0" SelectionChanged="OnComboBoxSelectionChanged">
-							<TextBlock>all</TextBlock>
-							<TextBlock>results and errors</TextBlock>
-							<TextBlock>erors only</TextBlock>
-						</ComboBox>
-					</StackPanel>
-				</Border>
-                <Border BorderBrush="#ddd" BorderThickness="1" Margin="5,5,5,0" Padding="5">
-                    <StackPanel Orientation="Horizontal">
-                        <Canvas>
-                            <TextBlock FontSize="10" Background="#ddd" Padding="2" Canvas.Top="-17" Canvas.Left="0">cleanup</TextBlock>
-                        </Canvas>
-                        <TextBlock Margin="0,3,10,0">Clear logs on refresh:</TextBlock>
-                        <CheckBox x:Name="ClearLogsCheckBox" Click="OnClearLogsCheckBoxClick" Margin="10,7,0,0"></CheckBox>
-                        <Button Padding="5,2,5,5" Margin="50,-1,10,1" Click="OnClearLogsButtonClick">clear logs now</Button>
-                    </StackPanel>
-                </Border>
-            </StackPanel>
-		</ScrollViewer>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="5" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="5" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Column="1" Grid.Row="1" Style="{StaticResource LabelAltText}">Select messaging level:</TextBlock>
+            <ComboBox Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" x:Name="MessageSelector" SelectedIndex="0" 
+                      SelectionChanged="OnComboBoxSelectionChanged" 
+                      Style="{StaticResource MidComboBox}" ItemContainerStyle="{StaticResource ComboItemStyle}">
+                <TextBlock>all</TextBlock>
+                <TextBlock>results and errors</TextBlock>
+                <TextBlock>erors only</TextBlock>
+            </ComboBox>
+
+            <TextBlock Grid.Column="1" Grid.Row="3" Style="{StaticResource LabelAltText}">Clear logs on refresh:</TextBlock>
+            <CheckBox Grid.Column="2" Grid.Row="3" x:Name="ClearLogsCheckBox" Style="{StaticResource NormalAltCheckBox}" 
+                      Click="OnClearLogsCheckBoxClick"></CheckBox>
+            <Button Grid.Column="3" Grid.Row="3" Style="{StaticResource midBtn}" FontFamily="Wingdings" 
+                    Click="OnClearLogsButtonClick" Content="clear logs">
+                <Button.Tag>#</Button.Tag>
+            </Button>
+
+        </Grid>
 	</Border>
 </UserControl>
