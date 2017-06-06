@@ -17,12 +17,12 @@ namespace HostSwitch.Entities
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public string configPath = null;
-        public string originalHostFileContent = null;
-        public string currentEnvContent = null;
-        public AvailableHostFile currentHostFile = null;
-        public AvailableHostFile selectedHostFile = null;
-        public ObservableCollection<AvailableHostFile> availableHostFiles = null;
+        private string configPath = null;
+        private string originalHostFileContent = null;
+        private string currentEnvContent = null;
+        private AvailableHostFile currentHostFile = null;
+        private AvailableHostFile selectedHostFile = null;
+        private ObservableCollection<AvailableHostFile> availableHostFiles = null;
 
         private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
         {

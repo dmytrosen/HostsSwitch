@@ -4,10 +4,10 @@ Introduction
 ============
 
 "hosts" file is probably one of the most known configuration files of Windows operation system. 
-As [Wiki](https://en.wikipedia.org/wiki/Hosts_(file)) describes, it maps hostname to IP address. 
+It maps hostname to IP address as [Wiki describes here](https://en.wikipedia.org/wiki/Hosts_(file)). 
 
-Use of "hosts" file is simple way to temporary substitute one server with another one, either 
-for development or test purposes.  
+Use of "hosts" file is a simple way to substitute access to one server with another one temporarily, 
+either for development or test purposes.  
 
 If you are Windows developer, you probably familiar with procedure of editing Windows 
 "hosts" file like: 
@@ -23,74 +23,78 @@ If you are Windows developer, you probably familiar with procedure of editing Wi
 Well, if you do it often, you probably get tired eventually and write your own script to do the job.
 
 It is all well and good until you start working with two or more servers and two or more 
-environments. Number of scripts grows, and developer starts having difficult time to remember 
-which substitution "hosts" file is active of which server at present time. 
+environments. Number of scripts grows and developer starts having difficult time to remember 
+which "hosts" file is active on which server at present time. 
 
-In such situation, a tool designated to watch and manage "hosts" files on multiple computers comes 
-in handy. Let’s introduce Hosts Switch desktop application, which does exactly that; it replaces 
-"hosts" files with selected predefined ones as well as flushes DNS and shows contents of active 
-"hosts" files on multiple computers. 
+When that happen, a tool designated to watch and manage "hosts" files on multiple computers comes 
+in handy. 
+
+Let’s introduce Hosts Switch desktop application, which does exactly that; it copies predefined 
+"hosts" file and flushes DNS at the touch of a button, as well as it shows content of active 
+"hosts" file of each computer. 
 
 How it works
 ============
 
-Configure the application, see Configuring environments section below. 
+How to configure the application -> see Configuring environments section below. 
 
-Run the application; you should see you configured environments loaded as it is shown on 
-example below: 
+When you run the application, you can see loaded configured environments as it is shown on the 
+screenshot below: 
 
 ![HostsSwitch Project](/Images/hosts2a.jpg)
 
-Select an Environment; SRV-IIS-DEV local VM is selected on example above. 
+Select an Environment; "SRV-IIS-DEV local VM" is shown as selected above. 
 
 Text area below "current environment" shows content of Effective Hosts File (see definition below), 
 and hostfiles dropdown list shows name of Effective Hosts File.
 
 Click on the dropdown list to see all Named Host Files (see definition below). 
 
-Select one of the options, DEV env for example: 
+Select one of the options, "DEV env" for example: 
 
 ![HostsSwitch Project](/Images/hosts2.jpg)
 
-If you click on Undo button, selection will be rolled back to original host file.
+If you click Undo button, current selection will be rolled back to original host file.
 
-If you click on Commit button, currently selected Named Host File will be copied to "etc" directory 
-of the computer, also DNS will be flushed automatically. In the example above, "DEV env" hosts file 
-will be copied to \\SRV-IIS-DEV\etc shared directory, which is c:\windows\system32\drivers\etc directory 
-on SRV-IIS-DEV computer following by executing "ipconfig /flushdns" command on that remote computer.
+If you click Commit button, currently selected Named Host File will be copied to "\etc" directory 
+of the computer; also DNS will be flushed automatically. In the example above, "DEV env" hosts file 
+will be copied to "\\SRV-IIS-DEV\etc" shared directory, which actually is "c:\windows\system32\drivers\etc" 
+directory on SRV-IIS-DEV computer, followed by execution of "ipconfig /flushdns" command on that remote computer.
 
 Definitions
 ============
 
-Before we start reviewing application features, let’s agree on some definitions. 
+Before we start reviewing application features, let’s agree on definitions: 
 
-1.  Environment – a computer setting; represents collection of predefined "hosts" files of computer. 
-    It is directory, where Named Host Files (see next) of the computer are located. 
+1.  Environment – basically it means a computer. In our terms, it represents collection of predefined 
+    "hosts" files of computer alone with the environment's descriptor file "env.config". Physically, it is a directory, 
+	where the "env.config " as well as all Named Host Files (see next definition) of the computer are located. 
 
 2.  Named Host File – a predefined custom "hosts" file, which is configured for specific Environment 
-    (see above). 
+    (see above). It may contain multiple hostname / IP address pairs as 
+	[Wiki describes](https://en.wikipedia.org/wiki/Hosts_(file)).
 
-3.  Effective Hosts File – a Named Host File, which currently in c:\windows\system32\drivers\etc 
+3.  Effective Hosts File – a Named Host File, which is currently present in "c:\windows\system32\drivers\etc" 
     directory. 
 
-4.  Repo – repository of named Environments and evidently all respective Named Host Files.
+4.  Repo – a directory - repository of all named Environments and evidently all respective Named Host Files.
 
-Here’s an example of Repo where 2 Environments are configured: localhost and SRV-IIS-DEV. 
+Here’s an example of Repo where 2 Environments are configured: "localhost" and "SRV-IIS-DEV". 
 
 ![HostsSwitch Project](/Images/repo2.jpg)
 
-As you see, Environment of computer SRV-IIS-DEV has 4 predefined Named Host Files, which may have 
-been configured to: 
+As you see, Environment of computer "SRV-IIS-DEV" has 4 predefined Named Host Files, which could be 
+configured as next: 
 
--   0.Local_only_no_mapping – has no substitutions; "localhost" of DEV computer as is 
+-   "0.Local_only_no_mapping" – has no substitutions; "localhost" of DEV computer as is 
 
--   1.Dev_env - point a Database to a DB on a DEV environment computer
+-   "1.Dev_env" - resolves to point a Database name to a DB on a DEV environment computer
 
--   2.Test_env - point a Database to a DB on a TEST environment computer
+-   "2.Test_env" - resolves to point a Database name to a DB on a TEST environment computer
 
--   3.Stage_env - point a Database to a DB on a STAGE environment computer
+-   "3.Stage_env" - resolves to point a Database name to a DB on a STAGE environment computer
 
-This configuration would result in creating 4 options of "hosts" files selection in dropdown list, 
+This configuration would result in creation of 4 options of "hosts" files in dropdown list, 
 as it is shown below: 
 
 ![HostsSwitch Project](/Images/hosts2a.jpg)
@@ -98,8 +102,8 @@ as it is shown below:
 Application description
 =======================
 
-Hosts Switch WPF application has 3 main section. Section one is designed to show all configured 
-Environments, where user can see or manage all configurations in one place. 
+Hosts Switch is WPF application and it has 3 main section. Section one is designed to show all configured 
+Environments, where user can see or manage configuration of "hosts" files of all computers in one place. 
 
 Other sections provide basic Help and application Settings management. 
 
@@ -114,13 +118,13 @@ configured computers, as it is shown below:
 
 ![HostsSwitch Project](/Images/hosts2.jpg)
 
-It may take time to load current content of "hosts" file of remote computer. So, you may see 
-progress bar showing state of loading process of Environments. 
+It may take time to load current content of "hosts" file of remote computer. Therefore, you may see 
+progress bar showing current state of loading process of Environments. 
 
 ![HostsSwitch Project](/Images/hosts1e.jpg)
 
-If computer configured by an Environment is offline, not accessible or misconfigured, Tab of 
-respective Environment would show error state of that Environment. See example below: 
+If computer represented by an Environment is offline, not accessible or misconfigured, Tab of 
+respective Environment would show error state of that Environment, as it is shown on screenshot below: 
 
 ![HostsSwitch Project](/Images/hosts2e.jpg)
 
@@ -129,8 +133,8 @@ respective Environment would show error state of that Environment. See example b
 Click on: tools like icon
 
 This section provides basic management of the app settings. Application log is the only configured 
-feature so far. Here you can clear log immediately, set clearing logs flag to erase all logs when 
-environments refresh button is clicked, as well as select logging level to:
+feature so far. Here you can clear log immediately, set clearing logs flag to erase all logs on 
+Refresh button click, as well as select logging level to:
 
 1.  all – log every click
 
@@ -154,6 +158,8 @@ Configuring environments
 ========================
 
 Let’s configure Environments in Repo.
+
+First, you need to create new directory in repo, and give it a meaningful name; name of computer would be the best.
 
 ![HostsSwitch Project](/Images/repo.jpg)
 
@@ -181,8 +187,8 @@ and another one:
 	<EnvHostPath>\\SRV-IIS-DEV\etc</EnvHostPath>
 </Env>
 ```
-
-where: 
+You need to create new "env.config" file in the directory of that new Environment. Add the XML above to the file 
+and configure its elements:
 
 | Element     | Description                                                                                      |
 |-------------|--------------------------------------------------------------------------------------------------|
@@ -192,14 +198,14 @@ where:
 
 #### Named Host Files
 
-All files except env.config in Environment directory are Named Hosts Files. It is important to name 
-the files properly. Template of Named Hosts Files is:
+In order to complete configuration, you need to add new Named Host Files to the Environment.
+It is important to name the files properly. Template of name of file of Named Hosts File is:
 
-single digit.name_of_file
+singledigit.name_of_file
 
-The file name does not allow spaces and digit must start with 0. Next Named Hosts Files must 
-start with single digit incremented by one, etc. Underscores will be replaced by spaces when 
-are shown on drop down list of Named Hosts Files of Environment as it is on picture below: 
+The file name does not allow spaces. Digit must start with 0. Next Named Hosts Files must 
+start with single digit incremented by one, etc. Underscores will be replaced by spaces 
+as it is shown on screenshot below: 
 
 ![HostsSwitch Project](/Images/hosts2a.jpg)
 

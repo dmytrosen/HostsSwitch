@@ -41,7 +41,7 @@ namespace HostSwitch
         }
 
         internal new bool IsLoaded { get; private set; }
-        public EnvSets Environments { get; private set; } = new EnvSets();
+        public ObservableCollection<EnvSet> Environments { get; private set; } = new ObservableCollection<EnvSet>();
         public ObservableCollection<ListViewItem> Results { get; private set; } = new ObservableCollection<ListViewItem>();
 
 		public MainWindow()

@@ -20,9 +20,9 @@ namespace HostSwitch.Entities
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public int index = -1;
+        private int index = -1;
         private string fullPath = null;
-        public string name = null;
+        private string name = null;
 
         /// <summary>
         /// Index in DDL list, firts one must start with 1 in alternative file name, following by ".". Examples:
