@@ -4,7 +4,7 @@ Introduction
 ============
 
 "hosts" file is probably one of the most known configuration files of Windows operation system. 
-It maps hostname to IP address as [Wiki describes here](https://en.wikipedia.org/wiki/Hosts_(file)). 
+It maps hostname to IP address as [Wiki describes](https://en.wikipedia.org/wiki/Hosts_(file)). 
 
 Use of "hosts" file is a simple way to substitute access to one server with another one temporarily, 
 either for development or test purposes.  
