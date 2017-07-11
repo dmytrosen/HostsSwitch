@@ -33,6 +33,8 @@ Let’s introduce Hosts Switch desktop application, which does exactly that; it 
 "hosts" file and flushes DNS at the touch of a button, as well as it shows content of active 
 "hosts" file of each computer. 
 
+##### Note: HostsSwitch C# project can be opened in Visual Studio 2017, targeting .NET framework 4.7.
+
 How it works
 ============
 
